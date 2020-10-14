@@ -1,0 +1,58 @@
+
+.PAGE{
+    --ion-background-color: #F0F5F6;
+}
+.HEADER{
+    --ion-background-color: dodgerblue;
+}
+.HEADER-TITLE{
+    color: white;
+}
+.MAIN-CONTAINER{
+    user-select: none;
+    --ion-background-color: white;
+}
+.SUB-CONTAINER{
+    padding: 15px;
+}
+.TITLE-CONTAINER{
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.MAIN-TITLE{
+    font-size: 30px;
+    font-weight: bold;
+    color: dodgerblue;
+}
+.SUB-TITLE{
+    color: dodgerblue;
+}
+.ERROR-CONTAINER{
+    color: red;
+    text-align: center;
+}
+.INPUT-IONITEM{
+    margin-top: 10px;
+    border: 1px solid lightgray;
+}
+.CHECK-BUTTON-CONTAINER{
+    margin-top: 20px;
+}
+.CHECK-BUTTON-LABEL{
+    padding-left: 5px;
+}
+.FORGET-CREDS-BUTTON{
+    color: crimson;
+    text-decoration: underline;
+}
+.CREATE-ACCOUNT-BUTTON{
+    color: dodgerblue;
+    text-decoration: underline;
+}
+.HOVER:hover{
+    --color: gray;
+    text-decoration: underline gray;
+}
+
