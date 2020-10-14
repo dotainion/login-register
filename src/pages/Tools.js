@@ -52,11 +52,8 @@ export class Security{
 
 
 class LoginHandlerClass{
-    constructor(){
-        this.ERR_ID = {
-            email:"",
-            password:"",
-        }
+    constructor(creds){
+        this.creds = creds;
         this.toServer = new Security();
     }
     isEmailValid(email){
@@ -80,22 +77,20 @@ class LoginHandlerClass{
             return false;
         }
     }
-    errReset(id,color="lightgray"){
-        document.getElementById(id).style.border = "1px solid "+color;
-    }
-    async check(credsObject,color="red"){
+    
+    async check(credsObject,IdObject,color="red"){
         let isValid = true;
         let errMsg = "";
         let emailError = false;
         let passwordError = false;
         if (this.isEmailValid(credsObject.email) == false){
             isValid = false;
-            document.getElementById(this.ERR_ID.email).style.border = "1px solid "+color;
+            document.getElementById(IdObject.email).style.border = "1px solid "+color;
             emailError = true;
         }
         if (!credsObject.password){
             isValid = false;
-            document.getElementById(this.ERR_ID.password).style.border = "1px solid "+color;
+            document.getElementById(IdObject.password).style.border = "1px solid "+color;
             passwordError = true;
         }
         if (isValid) return await this.toServer.login(credsObject.email,credsObject.password);
@@ -106,9 +101,33 @@ class LoginHandlerClass{
     }
 }
 
+class RegisterHandler{
+    constructor(creds){
+        this.creds = creds;
+        this.toServer = new Security();
+    }
+}
+
 class Tools{
     constructor(){
-        this.creds = new LoginHandlerClass();
+        this.login = new LoginHandlerClass(this);
+        this.register = new RegisterHandler(this);
+    }
+    errCheck(objId,inputsObj,color="red"){
+        const keys = Object.keys(objId);
+        let index = 0;
+        for (var inputs of Object.keys(inputsObj)){
+            index ++;
+            if (inputsObj[inputs] === ""){
+                document.getElementById(objId[index]).style.border = "1px solid "+color;
+            }
+        }
+    }
+    errReset(id,color="lightgray"){
+        document.getElementById(id).style.border = "1px solid "+color;
+    }
+    errSet(id,color="lightgray"){
+        document.getElementById(id).style.border = "1px solid "+color;
     }
 }
 

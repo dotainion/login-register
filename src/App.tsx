@@ -23,26 +23,14 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 /* Pages */
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Menu from './components/Menu';
-import MainPage from './pages/Main';
+import GUI from './pages/GUI';
 
 const App: React.FC = () => {
 
   return (
     <IonApp>
       <IonReactRouter>
-        <IonSplitPane contentId="menu">
-          <Menu />
-          <IonRouterOutlet id="menu">
-            <Route path="/page/:name" component={MainPage} exact />
-            <Redirect from="/" to="/login" exact />
-          </IonRouterOutlet>
-        </IonSplitPane>
-        
-        <Route path="/register" component={Register} exact />
-        <Route path="/login" component={Login} exact />
+        <Route path="/login" component={GUI} exact />
         <Redirect from="/" to="/login" exact />
       </IonReactRouter>
     </IonApp>
